@@ -1,0 +1,43 @@
+<!-- <div class="container">
+    <h1>Todo List</h1>
+    <input type="text" class="search-todo" placeholder="Search Todo" [(ngModel)]="searchText">
+    <button (click)="searchTodo(searchText)">Search Todo</button>
+    <input type="text" class="todo-input" placeholder="Enter todo" [(ngModel)]="newTodo">
+    <button class="todo-button" (click)="addTodo()">Add Todo</button>
+    <ul class="todo-list">
+            <li *ngFor="let todo of todos;let i = index">
+            <span *ngIf="!editClicked[i]">{{todo.todoInput}}</span>
+            <input type="text" *ngIf="editClicked[i]" [(ngModel)]="editedValues[i]">
+            <button *ngIf="!editClicked[i]" (click)="onEditClicked(i)">Edit</button>
+            <button *ngIf="editClicked[i]" (click)="onCancelClicked(i)">Cancel</button>
+            <button *ngIf="editClicked[i]" (click)="onSaveClicked(i,todo._id)">Save</button>
+            <button (click)="deleteTodo(todo._id)">Delete</button>
+        </li>
+    </ul>
+</div> -->
+
+<div class="todo-container">
+    <h1>Todo List</h1>
+    <div class="search-container">
+        <input type="text" class="search-todo" placeholder="Search Todo" [(ngModel)]="searchText">
+        <button class="todo-button search-button" (click)="searchTodo(searchText)">Search Todo</button>
+    </div>
+    <div class="add-todo-container">
+        <input type="text" class="todo-input" placeholder="Enter todo" [(ngModel)]="newTodo">
+        <button class="todo-button add-button" (click)="addTodo()">Add Todo</button>
+    </div>
+    <ul class="todo-list">
+        <!-- Todos will be added here dynamically -->
+        <li *ngFor="let todo of todos; let i = index" class="todo-item">
+            <span *ngIf="!editClicked[i]" class="todo-text">{{todo.todoInput}}</span>
+            <input type="text" *ngIf="editClicked[i]" [(ngModel)]="editedValues[i]" class="edit-input">
+            <button *ngIf="!editClicked[i]" (click)="onEditClicked(i)" class="edit-button">Edit</button>
+            <button *ngIf="editClicked[i]" (click)="onCancelClicked(i)" class="cancel-button">Cancel</button>
+            <button *ngIf="editClicked[i]" (click)="onSaveClicked(i, todo._id)" class="save-button">Save</button>
+            <button (click)="deleteTodo(todo._id)" class="delete-button">Delete</button>
+        </li>
+    </ul>
+</div>
+
+
+
